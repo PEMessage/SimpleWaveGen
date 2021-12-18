@@ -50,6 +50,7 @@
 /************************************************************/
 
 #define PIPEOUT_SEGMENT 64
+#define PIPEOUT_LIST 2
 
 void PipeOut_Init(void);
 void PipeOut_NextValue(void);

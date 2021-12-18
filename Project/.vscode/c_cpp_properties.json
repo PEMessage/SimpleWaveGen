@@ -3,19 +3,20 @@
         {
             "name": "ADC",
             "includePath": [
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Libraries\\CMSIS\\Include",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Libraries\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Libraries\\STM32F1xx_HAL_Driver\\Inc",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\User",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\User\\led",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Libraries\\CMSIS\\Include",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Libraries\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Libraries\\STM32F1xx_HAL_Driver\\Inc",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\User",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\User\\led",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\User\\systick",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Libraries\\CMSIS\\Device\\ST\\STM32F1xx\\Source\\Templates\\arm",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Libraries\\CMSIS\\Device\\ST\\STM32F1xx\\Source\\Templates",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Libraries\\STM32F1xx_HAL_Driver\\Src",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\User\\usart",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\User\\tim",
-                "d:\\a_Keil_STM32\\DAC_LMC660\\Doc"
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Libraries\\CMSIS\\Device\\ST\\STM32F1xx\\Source\\Templates\\arm",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Libraries\\CMSIS\\Device\\ST\\STM32F1xx\\Source\\Templates",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Libraries\\STM32F1xx_HAL_Driver\\Src",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\User\\usart",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\User\\tim",
+                "d:\\a_Keil_STM32_WithGit\\DAC_LMC660\\Doc"
             ],
             "defines": [
                 "USE_HAL_DRIVER",
