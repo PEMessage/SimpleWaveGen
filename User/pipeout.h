@@ -52,8 +52,13 @@
 #define PIPEOUT_SEGMENT 64
 #define PIPEOUT_LIST 2
 
+#define FREQ_NUM 11
+#define FREQ_SCALER_FACTOR  15625 // ARR Value = (FREQ_SCALER_FACTOR / FREQ) - 1
+
 void PipeOut_Init(void);
 void PipeOut_NextValue(void);
+void PipeOut_NextList(void);
+void PipeOut_NextFreq(void);
 void PipeOut_Output(void);
 
 #endif

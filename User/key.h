@@ -5,6 +5,7 @@
 #include "stm32f1xx_hal_gpio.h"
 
 
+
 #define KEY1_INT_GPIO_PORT                GPIOA
 #define KEY1_INT_GPIO_CLK_ENABLE()        __HAL_RCC_GPIOA_CLK_ENABLE();
 #define KEY1_INT_GPIO_PIN                 GPIO_PIN_0
@@ -29,5 +30,7 @@
 #define KEY3        HAL_GPIO_ReadPin(KEY3_INT_GPIO_PORT,KEY3_INT_GPIO_PIN)  //WKUP°´¼üPA0
 
 void Key_Init(void);
+
+
 #endif
 

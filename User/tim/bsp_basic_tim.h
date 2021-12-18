@@ -5,9 +5,9 @@
 #include "pipeout.h"
 
 // 定义定时器预分频，定时器实际时钟频率为：72MHz/（BASIC_TIMx_PRESCALER+1）
-#define BASIC_TIMx_PRESCALER           71 
+#define BASIC_TIMx_PRESCALER           72-1 
 // 定义定时器周期，当定时器开始计数到BASIC_TIMx_PERIOD值是更新定时器并生成对应事件和中断
-#define BASIC_TIMx_PERIOD              3905
+#define BASIC_TIMx_PERIOD              3906-1
 
 #define USE_TIM6
 
