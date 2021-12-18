@@ -3,7 +3,7 @@
 #include "./tim/bsp_basic_tim.h"
 
 static uint8_t outputlist_0[PIPEOUT_SEGMENT] =
-				{  127 ,140 ,152 ,165 ,177 ,188 ,199 ,209 ,218 ,227 
+		{  127 ,140 ,152 ,165 ,177 ,188 ,199 ,209 ,218 ,227 
           ,234 ,240 ,246 ,250 ,253 ,254 ,254 ,254 ,251 ,248 
           ,243 ,237 ,231 ,223 ,214 ,204 ,193 ,182 ,171 ,158 
           ,146 ,133 ,121 ,108 , 96 , 83 , 72 , 61 , 50 , 40 
@@ -12,13 +12,13 @@ static uint8_t outputlist_0[PIPEOUT_SEGMENT] =
           , 89 ,102 ,114 ,127 };
 				
 static uint8_t outputlist_1[PIPEOUT_SEGMENT] =
-				{  127 ,140 ,152 ,165 ,177 ,188 ,199 ,209 ,218 ,227 
-          ,234 ,240 ,246 ,250 ,253 ,254 ,254 ,254 ,251 ,248 
-          ,243 ,237 ,231 ,223 ,214 ,204 ,193 ,182 ,171 ,158 
-          ,146 ,133 ,121 ,108 , 96 , 83 , 72 , 61 , 50 , 40 
-          , 31 , 23 , 17 , 11 ,  6 ,  100 ,  0 ,  0 ,  0 ,  1 
-          ,  4 ,  8 , 14 , 20 , 27 , 36 , 45 , 55 , 66 , 77 
-          , 89 ,102 ,114 ,127 };
+		{  255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 
+		  ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 
+		  ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 ,255 
+		  ,255 ,255 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 
+		  ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 
+		  ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 ,  0 
+		  ,  0 ,  0 ,  0 ,  0 };
 
 static uint16_t outputfreq[FREQ_NUM] = {50,100,200,300,400,500,600,700,800,900,1000} ;
 
@@ -54,21 +54,30 @@ void PipeOut_NextFreq()
 			else
 			{current_freq = 0;}
 
-			BASIC_TIMx->ARR =(uint16_t) (FREQ_SCALER_FACTOR /  outputfreq[current_freq]) ;
+			BASIC_TIMx->ARR =(uint16_t) (FREQ_SCALER_FACTOR /  outputfreq[current_freq] - 1) ;
 			return ;
 	}
 	
 void PipeOut_Output()
 	{
-		HAL_GPIO_WritePin(L1_GPIO_PORT,L1_PIN,(GPIO_PinState)(   outputlist[current_list][current_out]&0x01    )  );
-		HAL_GPIO_WritePin(L2_GPIO_PORT,L2_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x02)>>1)  );
-		HAL_GPIO_WritePin(L3_GPIO_PORT,L3_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x04)>>2)  );
-		HAL_GPIO_WritePin(L4_GPIO_PORT,L4_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x08)>>3)  );
-		
-		HAL_GPIO_WritePin(L5_GPIO_PORT,L5_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x10)>>4)  );
-		HAL_GPIO_WritePin(L6_GPIO_PORT,L6_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x20)>>5)  );
-		HAL_GPIO_WritePin(L7_GPIO_PORT,L7_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x40)>>6)  );
+		//HAL_GPIO_WritePin(L1_GPIO_PORT,L1_PIN,(GPIO_PinState)(   outputlist[current_list][current_out]&0x01    )  );
+		//HAL_GPIO_WritePin(L2_GPIO_PORT,L2_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x02)>>1)  );
+		//HAL_GPIO_WritePin(L3_GPIO_PORT,L3_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x04)>>2)  );
+		//HAL_GPIO_WritePin(L4_GPIO_PORT,L4_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x08)>>3)  );
+		//
+		//HAL_GPIO_WritePin(L5_GPIO_PORT,L5_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x10)>>4)  );
+		//HAL_GPIO_WritePin(L6_GPIO_PORT,L6_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x20)>>5)  );
+		//HAL_GPIO_WritePin(L7_GPIO_PORT,L7_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x40)>>6)  );
+		//HAL_GPIO_WritePin(L8_GPIO_PORT,L8_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x80)>>7)  );
+
 		HAL_GPIO_WritePin(L8_GPIO_PORT,L8_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x80)>>7)  );
+		HAL_GPIO_WritePin(L7_GPIO_PORT,L7_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x40)>>6)  );
+		HAL_GPIO_WritePin(L6_GPIO_PORT,L6_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x20)>>5)  );
+		HAL_GPIO_WritePin(L5_GPIO_PORT,L5_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x10)>>4)  );
+		HAL_GPIO_WritePin(L4_GPIO_PORT,L4_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x08)>>3)  );
+		HAL_GPIO_WritePin(L3_GPIO_PORT,L3_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x04)>>2)  );
+		HAL_GPIO_WritePin(L2_GPIO_PORT,L2_PIN,(GPIO_PinState)(  (outputlist[current_list][current_out]&0x02)>>1)  );
+		HAL_GPIO_WritePin(L1_GPIO_PORT,L1_PIN,(GPIO_PinState)(   outputlist[current_list][current_out]&0x01    )  );
 		
 		return ;
 	}

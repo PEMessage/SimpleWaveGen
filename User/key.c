@@ -2,6 +2,7 @@
 #include "core_cm3.h"
 
 #include "bsp_led.h"
+#include "pipeout.h"
 
 void Key_Init(void)
 {
@@ -73,6 +74,8 @@ void KEY3_IRQHandler(void)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+   uint16_t delay = 10000 ;
+   while(delay--){};
 		//Delay_ms(10);
 		//delay_ms(100);      //消抖
 		//HAL_Delay(20);
@@ -82,12 +85,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
             if(KEY1==1) 
             {
 							LED1_OFF;				//控制LED0反转
+              PipeOut_NextList();
             }
             break;
         case KEY2_INT_GPIO_PIN:
             if(KEY2==0)  					//控制LED1反转
             {
 							LED1_ON;
+              PipeOut_NextFreq();
             }
             break;
         case KEY3_INT_GPIO_PIN:
