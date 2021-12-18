@@ -1,0 +1,7 @@
+{
+    "files.encoding": "gb2312",
+    "files.associations": {
+        "pipeout.h": "c",
+        "bsp_basic_tim.h": "c"
+    }
+}
